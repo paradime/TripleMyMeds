@@ -80,6 +80,8 @@ test:
 #
 production:
   <<: *default
-  database: TripleMyMeds_production
-  username: TripleMyMeds
-  password: <%= ENV['TRIPLEMYMEDS_DATABASE_PASSWORD'] %>
+  database: dagvcrj6q9husl
+  host: ec2-54-243-149-147.compute-1.amazonaws.com
+  port: 5432
+  username: xxhasmowxttysq
+  password: BkUYThLjjeonYAhzoLAbMR2S2b
