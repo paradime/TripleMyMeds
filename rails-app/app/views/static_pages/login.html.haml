@@ -1,2 +1,6 @@
 Hello!
-%button= link_to 'login', success_path
+%p Upload an image:
+%input{type:'file', required: true}
+%br
+%button{class:'btn btn-success'}= link_to 'login', success_path
+
