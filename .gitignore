@@ -15,5 +15,5 @@
 /log/*
 !/log/.keep
 /rails-app/log/*
-/tmp
-.DS_Store
+/rails-app/tmp
+/rails-app/.DS_Store
