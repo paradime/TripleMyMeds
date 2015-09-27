@@ -1,0 +1,2 @@
+module HealthidsHelper
+end
