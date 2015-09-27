@@ -4,7 +4,8 @@ Rails.application.routes.draw do
 
   # You can have the root of your site routed with "root"
   resources :healthids
-   root 'healthids#index'
+  resources :static_pages
+  root 'static_pages#login'
 
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'
