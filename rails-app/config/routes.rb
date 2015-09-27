@@ -4,7 +4,8 @@ Rails.application.routes.draw do
 
   # You can have the root of your site routed with "root"
   resources :healthids
-  resources :static_pages
+  get 'static_pages/login' => 'static_pages#login', as: :login
+  get 'static_pages/success' => 'static_pages#success', as: :success
   root 'static_pages#login'
 
   # Example of regular route:
