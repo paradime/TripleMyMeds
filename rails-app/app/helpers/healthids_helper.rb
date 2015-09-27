@@ -1,6 +1,8 @@
 require 'rjb'
 
 module HealthidsHelper
+  @previous_id = '0000000000000'
+
   def self.get_facial_features(photo)
     Rjb::load(classpath='.:FaceSDK.jar:jna.jar', jvmargs=[])
     fsdk = Rjb::import('Luxand.FSDK')
@@ -20,7 +22,7 @@ module HealthidsHelper
     x_coords = []
     y_coords = []
     max_num = 50000
-    arr.each { |p| x_coords << p.x; y_coords << p.y }
+    arr.features.each { |p| x_coords << p.x; y_coords << p.y }
     coords = (x_coords+y_coords).flatten
     # coords.map { |e| (Math.sin((2 * Math::PI) * (((x + 48617).to_f % max_num) / max_num ) + 1) * max_num * 1000 ).round(0) }
     coords.map! { |x| x + 48617 }
@@ -41,7 +43,10 @@ module HealthidsHelper
     str
   end
 
-  def self.unhash_key(key)
-
+  def self.create_health_id
+    country_code = 840
+    new_id = (@previous_id.to_i + 1).to_s.rjust(13, '0')
+    @previous_id = (@previous_id.to_i + 1).to_s.rjust(13, '0')
+    country_code.to_s << new_id
   end
 end
